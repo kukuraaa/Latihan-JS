@@ -21,3 +21,29 @@ kurang.addEventListener("click", function () {
     tampilkanAngka();
    }
 });
+//Todo List 
+let todos = [];
+
+const inputTodo = document.getElementById("inputTodo");
+const tombolTodo = document.getElementById("TambahTodo");
+const daftarTodo = document.getElementById("daftarTodo");
+
+tombolTodo.addEventListener("click", function () {
+    const isiTodo = inputTodo.value;
+    if (isiTodo === "") {
+        alert("Masukkan tugas terlebih dahulu!");
+        return;
+    }
+    todos.push(isiTodo);
+    tampilkanTodo();
+    inputTodo.value = "";
+});
+
+function tampilkanTodo() {
+    daftarTodo.innerHTML = "";
+    for (let todo of todos) {
+        const li = document.createElement("li");
+        li.textContent = todo;
+        daftarTodo.appendChild(li);
+    }
+}
