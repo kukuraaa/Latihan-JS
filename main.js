@@ -47,3 +47,32 @@ function tampilkanTodo() {
         daftarTodo.appendChild(li);
     }
 }
+
+//API
+const loadUser = document.getElementById("loadUser");
+const userList = document.getElementById("userList");
+
+loadUser.addEventListener("click", function () {
+
+    userList.innerHTML = "Loading...";
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (users) {
+            userList.innerHTML = "";
+            for (let user of users) {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <h3>${user.name}</h3>
+                    <p>Email : ${user.email}</p>
+                    <p>City : ${user.address.city}</p>
+                `;
+                userList.appendChild(card);
+            }
+        })
+        .catch(function () {
+            userList.innerHTML = "Gagal mengambil data.";
+        });
+});
