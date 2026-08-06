@@ -5,6 +5,7 @@ let count = 0;
 const angka = document.getElementById("angka");
 const tambah = document.getElementById("tambah");
 const kurang = document.getElementById("kurang");
+const reset = document.getElementById("reset");
 
 function tampilkanAngka() {
     angka.textContent = count;
@@ -20,6 +21,10 @@ kurang.addEventListener("click", function () {
     count--;
     tampilkanAngka();
    }
+});
+reset.addEventListener("click", function () {
+    count = 0;
+    tampilkanAngka();
 });
 // Todo List
 let todos = [];
