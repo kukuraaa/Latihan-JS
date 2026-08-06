@@ -11,15 +11,19 @@
         <section class="card-counter">
             <h2>Counter</h2>
             <h3 id="angka">0</h3>
-            <button id="kurang">-</button>
-            <button id="tambah">+</button>
-            <button id="reset">Reset</button>
+            <div class="counter-buttons">
+                <button id="tambah">+</button>
+                <button id="kurang">-</button>
+                <button id="reset">Reset</button>
+            </div>
         </section>
-        
+
         <section class="card-todo">
             <h2>Todo List</h2>
-            <input type="text" id="inputTodo" placeholder="Maukkan Tugas">
-            <button id="TambahTodo">Tambah</button>
+            <div class="todo-input-group">
+                <input type="text" id="inputTodo" placeholder="Maukkan Tugas">
+                <button id="TambahTodo">Tambah</button>
+            </div>
             <ul id="daftarTodo"></ul>
         </section>
 
@@ -27,23 +31,24 @@
             <h2>Calculator</h2>
             <input type="number" id="angka1" placeholder="Masukkan angka pertama">
             <input type="number" id="angka2" placeholder="Masukkan angka kedua">
-            <br><br>
-            <button id="tambahBtn">+</button>
-            <button id="kurangBtn">-</button>
-            <button id="kaliBtn">x</button>
-            <button id="bagiBtn">÷</button>
+            <div class="calculator-buttons">
+                <button id="tambahBtn">+</button>
+                <button id="kurangBtn">-</button>
+                <button id="kaliBtn">x</button>
+                <button id="bagiBtn">÷</button>
+            </div>
             <h3>Hasil : <span id="hasil">0</span></h3>
         </section>
 
-        <section class="card-api">
-            <h2>API</h2>
-            <button id="loadUser">load User</button>
-            <div id="userList"></div>
-        </section>
-
-        <section class="card-darkmode">
+         <section class="card-darkmode">
             <h2>Dark or Light Mode</h2>
             <button id="btnDark">Light</button>
+        </section>
+
+        <section class="card-api">
+            <h2>API User</h2>
+            <input type="text" id="searchUser"placeholder="Cari nama user...">
+            <div id="userList"></div>
         </section>
     </div>
     <script src="main.js"></script>

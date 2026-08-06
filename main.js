@@ -131,32 +131,45 @@ bagiBtn.addEventListener("click", function () {
 });
 
 //APII
-const loadUser = document.getElementById("loadUser");
+
+const searchUser = document.getElementById("searchUser");
 const userList = document.getElementById("userList");
 
-loadUser.addEventListener("click", function () {
+let semuaUser = [];
 
-    userList.innerHTML = "Loading...";
-    fetch("https://jsonplaceholder.typicode.com/users")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (users) {
-            userList.innerHTML = "";
-            for (let user of users) {
-                const card = document.createElement("div");
-                card.className = "card";
-                card.innerHTML = `
-                    <h3>${user.name}</h3>
-                    <p>Email : ${user.email}</p>
-                    <p>City : ${user.address.city}</p>
-                `;
-                userList.appendChild(card);
-            }
-        })
-        .catch(function () {
-            userList.innerHTML = "Gagal mengambil data.";
-        });
+function tampilkanUser(data) {
+    userList.innerHTML = "";
+    data.forEach(function (user) {
+
+        const card = document.createElement("div");
+
+        card.className = "card";
+        card.innerHTML = `
+            <h3>${user.name}</h3>
+            <p>Email : ${user.email}</p>
+            <p>City : ${user.address.city}</p>
+        `;
+        userList.appendChild(card);
+    });
+}
+fetch("https://jsonplaceholder.typicode.com/users")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (users) {
+        semuaUser = users;
+        tampilkanUser(semuaUser);
+    })
+    .catch(function () {
+        userList.innerHTML = "<p>Gagal mengambil data.</p>";
+    });
+    searchUser.addEventListener("input", function () {
+
+    const keyword = this.value.toLowerCase();
+    const hasil = semuaUser.filter(function (user) {
+        return user.name.toLowerCase().includes(keyword);
+    });
+    tampilkanUser(hasil);
 });
 //Dark Mode
 const button = document.querySelector("#btnDark");
