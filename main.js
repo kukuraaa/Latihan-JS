@@ -76,3 +76,18 @@ loadUser.addEventListener("click", function () {
             userList.innerHTML = "Gagal mengambil data.";
         });
 });
+//Dark Mode
+const button = document.querySelector("#btnDark");
+const body = document.querySelector("body");
+
+button.addEventListener("click", function () {
+
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+        button.innerHTML = "Dark";
+    } else {
+        button.innerHTML = "Light";
+    }
+
+});
