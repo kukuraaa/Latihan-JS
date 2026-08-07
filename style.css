@@ -65,9 +65,8 @@ button{
     transition:.3s;
     white-space:nowrap;
 }
-button:hover{
-    background:#ad57b4;
-}
+button:hover{background:#ad57b4;}
+
 input{
     width:100%;
     padding:12px;
@@ -100,14 +99,10 @@ input:focus{border:1px solid #8B639B;}
 
 .dark .todo-input-group{background:#36424f;}
 
-.todo-input-group input{
-    flex:1;
-    margin-bottom:0;
-}
-.todo-input-group button{
-    flex-shrink:0;
-    padding:12px 20px;
-}
+.todo-input-group input{flex:1; margin-bottom:0;}
+
+.todo-input-group button{flex-shrink:0; padding:12px 20px;}
+
 #daftarTodo{
     list-style:none;
     margin-top:16px;
@@ -137,6 +132,16 @@ input:focus{border:1px solid #8B639B;}
     padding:8px 14px;
     flex-shrink:0;
 }
+.todo-status{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8B639B;
+}
+
+.dark .todo-status{color: #c7f3b2;}
 
 #daftarTodo button:hover{background:#b71c1c;}
 
@@ -150,9 +155,8 @@ input:focus{border:1px solid #8B639B;}
     text-align:center;
     color:#8B639B;
 }
-.dark .card-calculator h3{
-    color:#c7f3b2;
-}
+.dark .card-calculator h3{color:#c7f3b2;}
+
 .calculator-buttons{
     display:flex;
     gap:10px;
@@ -169,10 +173,8 @@ input:focus{border:1px solid #8B639B;}
 
 .card-darkmode button{width:200px;}
 
-#searchUser{
-    width:100%;
-    margin-bottom:20px;
-}
+#searchUser{width:100%; margin-bottom:20px;}
+
 #userList{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -194,10 +196,7 @@ input:focus{border:1px solid #8B639B;}
 .dark{background:#1f252d; color:white;
 }
 
-.dark .container section{
-    background:#36424f;
-    color:white;
-}
+.dark .container section{background:#36424f; color:white;}
 
 .dark h2{color:#c7f3b2;}
 
@@ -225,9 +224,7 @@ input:focus{border:1px solid #8B639B;}
 
 .dark .card h3{color:#c7f3b2;}
 
-::-webkit-scrollbar{
-    width:8px;
-}
+::-webkit-scrollbar{width:8px;}
  
 ::-webkit-scrollbar-thumb{
     background:#8B639B;
@@ -287,15 +284,12 @@ input:focus{border:1px solid #8B639B;}
 
     .counter-buttons{gap:6px;}
 
-    .counter-buttons button{
-        padding:10px 6px;
-        font-size:13px;
-    }
+    .counter-buttons button{padding:10px 6px; font-size:13px;}
 
     .todo-input-group button{padding:10px; font-size:13px;}
 
     .card-todo{height:150px;}
 }
 @media(max-width:768px){
-    .card-todo{height: 250px;}
+.card-todo{height: 250px;}
 }

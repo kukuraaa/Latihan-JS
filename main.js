@@ -49,6 +49,8 @@ tombolTodo.addEventListener("click", function () {
     inputTodo.value = "";
 });
 
+const tugasAktif = document.getElementById("tugasAktif");
+
 function tampilkanTodo() {
     daftarTodo.innerHTML = "";
 
@@ -81,6 +83,11 @@ function tampilkanTodo() {
         li.appendChild(hapus);
         daftarTodo.appendChild(li);
     });
+    let aktif = todos.filter(function(todo){
+        return !todo.selesai;
+    }).length;
+
+    tugasAktif.textContent = aktif;
 }
 
 // Calculator
