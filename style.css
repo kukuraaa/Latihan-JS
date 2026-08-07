@@ -180,6 +180,8 @@ input:focus{border:1px solid #8B639B;}
     grid-template-columns:repeat(4,1fr);
     gap:20px;
 }
+#btnLoadUser{width:100%; margin-bottom:20px;}
+#btnTutup{ width:100%; margin-top:20px; }
 
 .card{
     background:white;

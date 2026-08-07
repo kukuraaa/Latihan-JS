@@ -138,18 +138,18 @@ bagiBtn.addEventListener("click", function () {
 });
 
 //APII
-
+const loadUser = document.getElementById("btnLoadUser");
 const searchUser = document.getElementById("searchUser");
 const userList = document.getElementById("userList");
+const btnTutup = document.getElementById("btnTutup");
 
 let semuaUser = [];
 
-function tampilkanUser(data) {
+function tampilkanUser(data){
     userList.innerHTML = "";
-    data.forEach(function (user) {
 
+    data.forEach(function(user){
         const card = document.createElement("div");
-
         card.className = "card";
         card.innerHTML = `
             <h3>${user.name}</h3>
@@ -159,25 +159,42 @@ function tampilkanUser(data) {
         userList.appendChild(card);
     });
 }
-fetch("https://jsonplaceholder.typicode.com/users")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (users) {
-        semuaUser = users;
-        tampilkanUser(semuaUser);
-    })
-    .catch(function () {
-        userList.innerHTML = "<p>Gagal mengambil data.</p>";
-    });
-    searchUser.addEventListener("input", function () {
+loadUser.addEventListener("click", function(){
+    userList.innerHTML = "Loading...";
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(users){
+            semuaUser = users;
+            tampilkanUser(semuaUser);
+            searchUser.style.display = "block";
+            loadUser.style.display = "none";
+            btnTutup.style.display = "block";
+        })
+        .catch(function(){
+            userList.innerHTML = "Gagal mengambil data.";
+        });
+});
+searchUser.addEventListener("input", function(){
 
-    const keyword = this.value.toLowerCase();
-    const hasil = semuaUser.filter(function (user) {
+    const keyword = searchUser.value.toLowerCase();
+    const hasilFilter = semuaUser.filter(function(user){
+
         return user.name.toLowerCase().includes(keyword);
     });
-    tampilkanUser(hasil);
+    tampilkanUser(hasilFilter);
 });
+btnTutup.addEventListener("click", function(){
+
+    searchUser.style.display = "none";
+    btnTutup.style.display = "none";
+    loadUser.style.display = "block";
+    searchUser.value = "";
+    userList.innerHTML = "";
+    semuaUser = [];
+});
+
 //Dark Mode
 const button = document.querySelector("#btnDark");
 const body = document.querySelector("body");
@@ -191,5 +208,4 @@ button.addEventListener("click", function () {
     } else {
         button.innerHTML = "Light";
     }
-
 });
